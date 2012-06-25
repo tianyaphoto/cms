@@ -1,4 +1,6 @@
 Cms::Application.routes.draw do
+  resources :articles
+
   get "welcome/index"
 
   resources :categories
