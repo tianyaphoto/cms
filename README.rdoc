@@ -3,5 +3,7 @@
 
 == TODO
 * 分类
+https://github.com/collectiveidea/awesome_nested_set
 * 多媒体输入
+https://github.com/Macrow/rails_kindeditor
 * 认证
