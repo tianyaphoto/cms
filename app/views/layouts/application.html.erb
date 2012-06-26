@@ -1,14 +1,69 @@
-<!DOCTYPE html>
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
-<head>
-  <title>Cms</title>
-  <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
-  <%= csrf_meta_tags %>
-</head>
-<body>
+  <head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+    <title>筑诚集团</title>
+    <!--[if lt IE 8]>
+    <%= stylesheet_link_tag    "ie", :media => "all" %>
+    <![endif]-->
+    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= javascript_include_tag "application" %>
+    <%= csrf_meta_tags %>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header span-24">
+        <div class="log span-5">
+          <img src="/assets/logo.png" alt="筑诚集团" />
+        </div>
+        <div class="span-5">
+          <img src="/assets/words.png" />
+        </div>
+        <div class="link_nav right span-10">
+          <a href="/">集团首页 </a> |  <a href="#">联系我们</a> | <a href="#">网站地图 </a> | <a href="#">后台登录 </a>
+        </div>
+      </div>
+      <div class="navigate span-24 left">
+        <ul class="mainnav">
+          <% @categories.each do |category|   %>
+            <li><%=link_to category.name, root_url, :class => "current"  %></li>
+          <% end %>
+        </ul>
+      </div>
+      <hr class="space"/>
+      <div class="main span-24 clear">
+        <div class="slider span-5 border">
+          <div class="subnav-t">&nbsp;&nbsp;集团首页</div>
+          <ul class="subnav">
+            <% @category_child.each do |category|   %>
+              <li  class="current"><img src="/assets/icon04.png"><a href="/"><%=category.name  %></a></li>
+            <% end  %>
+          </ul>
+          <br/><br/><br/><br/><br/><br/><br/>
 
-<%= yield %>
+          <div class="friend_link">
+            <div class="subnav-t">&nbsp;&nbsp;友情链接</div>
+            <div class="b">
+              <ul>
+                <li><a href="#">北京城市建设集团</a></li>
+                <li><a href="#">北京城市建设集团</a></li>
+                <li><a href="#">北京城市建设集团</a></li>
+                <li><a href="#">北京城市建设集团</a></li>
+                <li><a href="#">北京城市建设集团</a></li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="span-18 prepend-1 last">
+          <%=yield  %>
+        </div>
+      </div>
+      <hr/>
+      <div class="footer">
+        &copy;版权2012筑诚集团。本公司保留一切权利
+      </div>
+    </div>
 
-</body>
+  </body>
 </html>
+

@@ -1,4 +1,6 @@
 class CategoriesController < ApplicationController
+  layout "admin.html.erb"
+
   # GET /categories
   # GET /categories.json
   def index

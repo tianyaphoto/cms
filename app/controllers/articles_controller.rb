@@ -1,4 +1,6 @@
 class ArticlesController < ApplicationController
+  layout "admin.html.erb"
+
   # GET /articles
   # GET /articles.json
   def index
