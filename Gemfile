@@ -22,6 +22,11 @@ end
 
 gem 'jquery-rails'
 
+group :development do 
+  gem 'rails-footnotes', '>= 3.7.5.rc4'
+  gem 'pry-rails'
+end
+
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'
 
