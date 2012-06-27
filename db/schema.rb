@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20120625124853) do
+ActiveRecord::Schema.define(:version => 20120627063141) do
 
   create_table "articles", :force => true do |t|
     t.string   "title"
@@ -30,8 +30,19 @@ ActiveRecord::Schema.define(:version => 20120625124853) do
     t.integer  "lft"
     t.integer  "rgt"
     t.integer  "depth"
-    t.datetime "created_at", :null => false
-    t.datetime "updated_at", :null => false
+    t.datetime "created_at",                                   :null => false
+    t.datetime "updated_at",                                   :null => false
+    t.string   "ctype",      :limit => 10, :default => "none"
+    t.integer  "position",                 :default => 0
   end
+
+  create_table "pages", :force => true do |t|
+    t.integer  "category_id"
+    t.text     "content"
+    t.datetime "created_at",  :null => false
+    t.datetime "updated_at",  :null => false
+  end
+
+  add_index "pages", ["category_id"], :name => "index_pages_on_category_id"
 
 end

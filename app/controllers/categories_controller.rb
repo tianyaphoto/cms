@@ -46,6 +46,10 @@ class CategoriesController < ApplicationController
 
     respond_to do |format|
       if @category.save
+        page = Page.new(:content => @category.content )
+        page.category = @category
+        page.save
+        
         format.html { redirect_to @category, notice: 'Category was successfully created.' }
         format.json { render json: @category, status: :created, location: @category }
       else
@@ -59,9 +63,10 @@ class CategoriesController < ApplicationController
   # PUT /categories/1.json
   def update
     @category = Category.find(params[:id])
-
+    page = @category.page
     respond_to do |format|
       if @category.update_attributes(params[:category])
+        page.update_attribute(:content, @category.content) if page
         format.html { redirect_to @category, notice: 'Category was successfully updated.' }
         format.json { head :no_content }
       else
