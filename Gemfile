@@ -23,7 +23,7 @@ end
 gem 'jquery-rails'
 
 group :development do 
-  gem 'rails-footnotes', '>= 3.7.5.rc4'
+#  gem 'rails-footnotes', '>= 3.7.5.rc4'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-nav'

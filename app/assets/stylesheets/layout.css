@@ -78,6 +78,10 @@ a{ text-decoration: none;}
     text-align: left;	
 }
 
+#main-content {
+    overflow: hidden;
+}
+
 p{ text-indent: 2em;}
 
 .friend_link{

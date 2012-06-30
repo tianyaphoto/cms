@@ -26,7 +26,7 @@
       <div class="navigate span-24 left">
         <ul class="mainnav">
           <% @categories.each do |category|   %>
-            <li><%=link_to category.name, root_url, :class => "current"  %></li>
+            <%= nav_li category   %>
           <% end %>
         </ul>
       </div>
@@ -36,7 +36,7 @@
           <div class="subnav-t">&nbsp;&nbsp;集团首页</div>
           <ul class="subnav">
             <% @category_child.each do |category|   %>
-              <li  class="current"><img src="/assets/icon04.png"><a href="/"><%=category.name  %></a></li>
+              <%= nav_child_li category   %>
             <% end  %>
           </ul>
           <br/><br/><br/><br/><br/><br/><br/>
@@ -54,7 +54,7 @@
             </div>
           </div>
         </div>
-        <div class="span-18 prepend-1 last">
+        <div id="main-content" class="span-18 prepend-1 last">
           <%=yield  %>
         </div>
       </div>

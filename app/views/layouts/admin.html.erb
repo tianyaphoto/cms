@@ -7,8 +7,10 @@
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <title><%= content_for?(:title) ? yield(:title) : "后台管理" %></title>
-
   </head>
+  <style type="text/css">
+    body{ background: none;}
+  </style>
   <body>
     <%= yield %>
   </body>

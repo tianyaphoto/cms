@@ -1,5 +1,8 @@
+# -*- encoding: utf-8 -*-
 class CategoriesController < ApplicationController
   layout "admin.html.erb"
+
+  before_filter  :init_navigation, :only => "show"
 
   # GET /categories
   # GET /categories.json
@@ -16,9 +19,12 @@ class CategoriesController < ApplicationController
   # GET /categories/1.json
   def show
     @category = Category.find(params[:id])
-
+    @current_c = @category
+    @category_child =  @category.depth == 1 ?  @current_c.children  : @current_c.parent.children
     respond_to do |format|
-      format.html # show.html.erb
+      format.html {
+        render :layout => "application.html.erb"
+      }
       format.json { render json: @category }
     end
   end
@@ -50,7 +56,7 @@ class CategoriesController < ApplicationController
         page.category = @category
         page.save
         
-        format.html { redirect_to @category, notice: 'Category was successfully created.' }
+        format.html { redirect_to @category, notice: '目录创建成功.' }
         format.json { render json: @category, status: :created, location: @category }
       else
         format.html { render action: "new" }
@@ -63,11 +69,14 @@ class CategoriesController < ApplicationController
   # PUT /categories/1.json
   def update
     @category = Category.find(params[:id])
-    page = @category.page
+    #page = @category.page
     respond_to do |format|
       if @category.update_attributes(params[:category])
-        page.update_attribute(:content, @category.content) if page
-        format.html { redirect_to @category, notice: 'Category was successfully updated.' }
+        
+        #page.update_attribute(:content, @category.content) if page
+        #Rails.logger.info page.inpsect
+
+        format.html { redirect_to @category, notice: '目录修改成功.' }
         format.json { head :no_content }
       else
         format.html { render action: "edit" }

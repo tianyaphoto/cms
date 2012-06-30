@@ -2,7 +2,9 @@
 class Category < ActiveRecord::Base
   acts_as_nested_set
   attr_accessible :name, :parent_id, :ctype, :position, :content
-  attr_accessor :content
+  attr_accessor :content, :page_content
+
+  before_save :update_page_content
 
   class << self
     attr_accessor :ctypes
@@ -15,23 +17,23 @@ class Category < ActiveRecord::Base
 
   validates :ctype, :inclusion => { :in => ['none', 'page', 'list'] }
 
+  def content
+    self.page.content if self.page
+  end
 
-  #  def initialize
-  #    if self.ctype == 'page'
-  #      self.class_eval do
-  #        has_one :page
-  #      end
-  #    elsif self.ctype == 'list'
-  #      self.class_eval do
-  #        has_one :articles
-  #      end
-  #    end
-  #    super
-  #  end
+  def content=(content)
+    self.page_content = content
+  end
 
 
-  def after_save
-    
+
+  def update_page_content
+    if self.ctype == "page"
+      page = self.page || Page.new
+      page.category = self
+      page.content = self.page_content
+      page.save!
+    end
   end
 
   

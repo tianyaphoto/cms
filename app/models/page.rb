@@ -4,4 +4,5 @@ class Page < ActiveRecord::Base
   attr_accessible :category_id, :content
 
 
+
 end

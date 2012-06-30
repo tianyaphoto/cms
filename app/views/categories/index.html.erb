@@ -1,12 +1,9 @@
-<h1>Listing categories</h1>
+<h1>导航分类</h1>
 
 <table>
   <tr>
-    <th>Name</th>
-    <th>Parent</th>
-    <th>Lft</th>
-    <th>Rgt</th>
-    <th>Depth</th>
+    <th>导航名称</th>
+    <th>深度</th>
     <th></th>
     <th></th>
     <th></th>
@@ -15,13 +12,10 @@
 <% @categories.each do |category| %>
   <tr>
     <td><%= category.name %></td>
-    <td><%= category.parent_id %></td>
-    <td><%= category.lft %></td>
-    <td><%= category.rgt %></td>
     <td><%= category.depth %></td>
-    <td><%= link_to 'Show', category %></td>
-    <td><%= link_to 'Edit', edit_category_path(category) %></td>
-    <td><%= link_to 'Destroy', category, confirm: 'Are you sure?', method: :delete %></td>
+    <td><%= link_to '显示', category %></td>
+    <td><%= link_to '修改', edit_category_path(category) %></td>
+    <td><%= link_to '删除', category, confirm: 'Are you sure?', method: :delete %></td>
   </tr>
 <% end %>
 </table>

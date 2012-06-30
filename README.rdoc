@@ -1,9 +1,12 @@
 == CMS
 简单的cms管理系统
 
-== TODO
 * 分类
 https://github.com/collectiveidea/awesome_nested_set
 * 多媒体输入
 https://github.com/Macrow/rails_kindeditor
 * 认证
+
+== TODO
+* 修改网站样式
+* 看效果，初始化数据

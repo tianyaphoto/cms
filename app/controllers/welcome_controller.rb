@@ -1,15 +1,15 @@
+# -*- encoding: utf-8 -*-
 class WelcomeController < ApplicationController
 
   before_filter  :init_navigation
   
   def index
-     @category_child = Category.find(2).children
-    
+    @category = Category.where("name = ?", "集团首页").first
+    @current_c = @category
+    @page = @current_c.page
+    @category_child = @current_c.children
   end
+  
 
-  private
-  def init_navigation
-    @categories = Category.root.children 
-  end
 
 end
