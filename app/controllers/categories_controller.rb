@@ -1,5 +1,7 @@
 # -*- encoding: utf-8 -*-
 class CategoriesController < ApplicationController
+  before_filter :authenticate_user!
+  
   layout "admin.html.erb"
 
   before_filter  :init_navigation, :only => "show"

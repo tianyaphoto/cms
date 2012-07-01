@@ -20,7 +20,11 @@
           <img src="/assets/words.png" />
         </div>
         <div class="link_nav right span-10">
-          <a href="/">集团首页 </a> |  <a href="#">联系我们</a> | <a href="#">网站地图 </a> | <a href="#">后台登录 </a>
+          <% if user_signed_in?    %>
+           欢迎您: <%= current_user.email %>， <%= link_to "注销", destroy_user_session_path, :method => "delete"   %>
+          <% else %>
+            <a href="#">联系我们</a> | <a href="#">网站地图 </a> | <a href="/login">后台登录 </a>
+          <% end %>
         </div>
       </div>
       <div class="navigate span-24 left">
@@ -55,6 +59,7 @@
           </div>
         </div>
         <div id="main-content" class="span-18 prepend-1 last">
+
           <%=yield  %>
         </div>
       </div>

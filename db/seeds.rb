@@ -1,4 +1,12 @@
 # -*- encoding: utf-8 -*-
+
+#init adminor
+admin = User.create({
+  :email => "admin@zgzcjt.com",
+  :password => "123456"
+  })
+
+#init navigation
 root = Category.create(:name => "筑诚集团", :ctype => 'none')
 
 c1 = Category.create(:name => "集团首页", :parent_id => root.id, :ctype => 'none')

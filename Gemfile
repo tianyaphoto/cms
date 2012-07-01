@@ -23,12 +23,14 @@ end
 gem 'jquery-rails'
 
 group :development do 
-#  gem 'rails-footnotes', '>= 3.7.5.rc4'
+  #  gem 'rails-footnotes', '>= 3.7.5.rc4'
   gem 'pry-rails'
   gem 'pry-doc'
   gem 'pry-nav'
   gem 'pry-remote'
 end
+
+gem "devise", '2.1.0'  
 
 # To use ActiveModel has_secure_password
 # gem 'bcrypt-ruby', '~> 3.0.0'

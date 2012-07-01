@@ -1,0 +1,12 @@
+<h2>管理后台登录</h2>
+
+<%= form_for(resource, :as => resource_name, :url => session_path(resource_name)) do |f| %>
+  <div><%= f.label :email, "邮箱" %><br />
+  <%= f.email_field :email %></div>
+
+  <div><%= f.label :password, "密码" %><br />
+  <%= f.password_field :password %></div>
+
+
+  <div><%= f.submit "登录" %></div>
+<% end %>

@@ -1,4 +1,7 @@
 Cms::Application.routes.draw do
+  devise_for :users, :controllers => { :sessions => "users/sessions" }, :path => "/",
+    :path_names => { :sign_in => 'login'}
+
   resources :pages
 
   resources :articles

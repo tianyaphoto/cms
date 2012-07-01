@@ -6,4 +6,9 @@ class ApplicationController < ActionController::Base
     @categories = Category.root.children
     
   end
+
+  private
+  def after_sign_in_path_for(resource_or_scope)
+    categories_path
+  end  
 end

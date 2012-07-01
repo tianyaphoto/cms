@@ -229,9 +229,13 @@ zh:
       <<: *errors
     models:
       category: 分类目录
+      user: 用户
     attributes:
+      user:
+        email: 邮箱
+        password: 密码
       category:
         name: 目录名称
         ctype: 目录类别
-        parent: 上级目录
+        parent_id: 上级目录
         depth: 目录等级

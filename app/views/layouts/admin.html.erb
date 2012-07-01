@@ -3,7 +3,7 @@
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <%= stylesheet_link_tag    "application", :media => "all" %>
+    <%= stylesheet_link_tag    "admin", :media => "all" %>
     <%= javascript_include_tag "application" %>
     <%= csrf_meta_tags %>
     <title><%= content_for?(:title) ? yield(:title) : "后台管理" %></title>
@@ -12,6 +12,29 @@
     body{ background: none;}
   </style>
   <body>
-    <%= yield %>
+    <div id="header">
+      <h1>后台管理</h1>
+
+      欢迎您: <%= current_user.email %>， <%=link_to "注销", destroy_user_session_path, :method => "delete"  %>
+    </div>
+    <div id="content">
+      <% if notice %>
+        <p class="notice"><%= notice %></p>
+      <% end  %>
+      <% if alert %>
+        <p class="alert"><%= alert %></p>
+      <% end  %>
+      <%= yield %>
+        <div id="sider">
+        </div>
+
+        <div id="main">
+          
+        </div>
+    </div>
+    <div id="footer">
+
+    </div>
+
   </body>
 </html>
