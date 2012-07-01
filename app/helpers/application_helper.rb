@@ -1,3 +1,4 @@
+# -*- encoding: utf-8 -*-
 module ApplicationHelper
 
   #<li  class="current"><img src="/assets/icon04.png"><a href="/"><%=category.name  %></a></li>
