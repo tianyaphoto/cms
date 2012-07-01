@@ -1,6 +1,6 @@
 # -*- encoding: utf-8 -*-
 class CategoriesController < ApplicationController
-  before_filter :authenticate_user!
+  before_filter :authenticate_user!, :except => "show"
   
   layout "admin.html.erb"
 

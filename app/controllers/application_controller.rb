@@ -4,7 +4,6 @@ class ApplicationController < ActionController::Base
   protected
   def init_navigation
     @categories = Category.root.children
-    
   end
 
   private

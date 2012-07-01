@@ -28,7 +28,7 @@ class Category < ActiveRecord::Base
 
 
   def update_page_content
-    if self.ctype == "page"
+    if !self.new_record? && self.ctype == "page"
       page = self.page || Page.new
       page.category = self
       page.content = self.page_content
