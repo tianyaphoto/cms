@@ -24,12 +24,14 @@
       <% if alert %>
         <p class="alert"><%= alert %></p>
       <% end  %>
-      <%= yield %>
+    
         <div id="sider">
+          <h3>导航栏目</h3>
+          <%=raw sider  %>
         </div>
 
         <div id="main">
-          
+            <%= yield %>
         </div>
     </div>
     <div id="footer">

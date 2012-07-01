@@ -3,9 +3,9 @@
     <div id="error_explanation">
       <h2><%= pluralize(@category.errors.count, "error") %> prohibited this category from being saved:</h2>
       <ul>
-      <% @category.errors.full_messages.each do |msg| %>
-        <li><%= msg %></li>
-      <% end %>
+        <% @category.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
       </ul>
     </div>
   <% end %>
@@ -20,12 +20,12 @@
   </div>
   <div class="field">
     <%= f.label :parent_id %><br />
-	<%= f.select :parent_id, nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" } %>
+    <%= f.select :parent_id, nested_set_options(Category, @category) {|i| "#{'-' * i.level} #{i.name}" } %>
   </div>
- <% if @category.ctype == 'page' %>
- <%= f.kindeditor :content, :width => 800, :height => 300 %>
-<% end %>
-  <div class="actions">
-    <%= f.submit %>
+  <div id="category_page_content" class="field <%="hide" if @category.ctype != 'page'  %>">
+    <%= f.kindeditor :content, :width => 800, :height => 300 %>
   </div>
+<div class="actions">
+  <%= f.submit %>
+</div>
 <% end %>

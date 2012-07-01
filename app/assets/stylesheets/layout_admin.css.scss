@@ -1,0 +1,31 @@
+body{
+background-color: $blueprint-background-color ;
+ color: $font-color;
+
+  #header{ border-bottom: 1px solid #cccccc;}
+
+  #content{ @include container;
+     #sider{
+      border-right: 1px soid #cccccc;
+      @include column(5);
+      ul{
+        margin: 0;
+        padding: 0;
+        li{
+            list-style: none outside none;
+        }
+      }
+     }
+     #main {
+      @include column(18);
+
+      form{
+         .field {  margin: 10px 0; padding: 3px; }
+      }
+
+      .hide{ display: none;}
+    }
+   }
+
+  #footer{}
+}
