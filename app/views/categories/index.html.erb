@@ -1,25 +1,14 @@
-<h3>导航分类</h3>
+<h3>简单的说明</h3>
 
-<table>
-  <tr>
-    <th>导航名称</th>
-    <th>深度</th>
-    <th></th>
-    <th></th>
-    <th></th>
-  </tr>
+导航的分类有三种： 无页面, 页面， 列表。<br/>
+无页面： 就是没有页面， 该导航使用的是它的第一个子类的页面<br/>
+页面： 就是该导航分类只有一个页面<br/>
+列表： 该导航分类有很多页面，如 新闻<br/>
 
-<% @categories.each do |category| %>
-  <tr>
-    <td><%= category.name %></td>
-    <td><%= category.depth %></td>
-    <td><%= link_to '显示', category %></td>
-    <td><%= link_to '修改', edit_category_path(category) %></td>
-    <td><%= link_to '删除', category, confirm: 'Are you sure?', method: :delete %></td>
-  </tr>
-<% end %>
-</table>
 
-<br />
+<br/>
+祝您使用愉快。
+<br/>
 
+<br/>
 <%= link_to '新建导航分类', new_category_path %>
