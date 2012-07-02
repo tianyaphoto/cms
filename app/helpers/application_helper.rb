@@ -23,23 +23,18 @@ module ApplicationHelper
   end
 
   def sider
-    list = ""
-    all = Category.where("id != 1").all
-    all.each do |obj|
-      list << content_tag("li", raw("&nbsp;&nbsp;" * obj.depth + link_to(obj.name, edit_category_path(obj))))
+    #   list = ""
+    #   all = Category.where("id != 1").all
+    #   all.each do |obj|
+    #     list << content_tag("li", raw("&nbsp;&nbsp;" * obj.depth + link_to(obj.name, edit_category_path(obj))))
+    #   end
+    #   content_tag("ul", raw(list))
+    html = ""
+    root = Category.first
+    root.descendants.each do |obj|
+      html += content_tag("li",raw("&nbsp;&nbsp;" * (obj.depth - 1) + link_to(obj.name, edit_category_path(obj))))
     end
-    content_tag("ul", raw(list))
+    content_tag "ul", raw(html)
   end
 
-  private
-  def child(category, html)
-    html << link_to(category.name, edit_category_path(category))
-    children = category.children
-    
-    children.each do |cate|
-      child(cate, html)
-    end  unless children.empty?
-
-  end
-  
 end
