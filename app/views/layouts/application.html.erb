@@ -19,7 +19,7 @@
         </div>
         <div class="link_nav right span-10">
           <% if user_signed_in?    %>
-           欢迎您: <%= current_user.email %>， <%= link_to "注销", destroy_user_session_path, :method => "delete"   %>
+            欢迎您: <%= current_user.email %>, <%=link_to "后台管理页面", categories_path %>， <%= link_to "注销", destroy_user_session_path, :method => "delete"   %>
           <% else %>
             <a href="#">联系我们</a> | <a href="#">网站地图 </a> | <a href="/login">后台登录 </a>
           <% end %>

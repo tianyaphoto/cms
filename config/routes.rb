@@ -1,14 +1,12 @@
 Cms::Application.routes.draw do
   devise_for :users, :controllers => { :sessions => "users/sessions" }, :path => "/",
     :path_names => { :sign_in => 'login'}
-
+  
   resources :pages
-
   resources :articles
-
-  get "welcome/index"
-
   resources :categories
+
+  match "/show/:id" => "welcome#show"
 
   # The priority is based upon order of creation:
   # first created -> highest priority.

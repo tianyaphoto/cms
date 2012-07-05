@@ -25,7 +25,6 @@ class CategoriesController < ApplicationController
     @category_child =  @category.depth == 1 ?  @current_c.children  : @current_c.parent.children
     respond_to do |format|
       format.html {
-        render :layout => "application.html.erb"
       }
       format.json { render json: @category }
     end
