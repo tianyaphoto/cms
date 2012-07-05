@@ -14,10 +14,10 @@
         <div class="log span-5">
           <img src="/assets/logo.png" alt="筑诚集团" />
         </div>
-        <div class="span-5">
+        <div class="span-11">
           <img src="/assets/words.png" />
         </div>
-        <div class="link_nav right span-10">
+        <div class="link_nav right span-7">
           <% if user_signed_in?    %>
             欢迎您: <%= current_user.email %>, <%=link_to "后台管理页面", categories_path %>， <%= link_to "注销", destroy_user_session_path, :method => "delete"   %>
           <% else %>
