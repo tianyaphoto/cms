@@ -12,13 +12,13 @@ class WelcomeController < ApplicationController
 
   def show
     cat = Category.find_by_id(params[:id])
-    if cat.ctype == 'none'
+    if cat.ctype == 'none' && !cat.children.empty?
       @category = cat.children.first
     else
       @category = cat
     end
     @current_c = @category
-    @category_child =  @category.depth == 1 ?  @current_c.children  : @current_c.parent.children
+    @category_child =  (@category && @category.depth == 1) ?  @current_c.children  : @current_c.parent.children
   end
 
 
