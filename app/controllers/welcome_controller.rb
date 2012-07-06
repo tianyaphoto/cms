@@ -5,6 +5,7 @@ class WelcomeController < ApplicationController
   
   def index
     @category = Category.where("name = ?", "集团首页").first
+    redirect_to "/show/#{@category.id}"
     @current_c = @category
     @page = @current_c.page
     @category_child = @current_c.children
