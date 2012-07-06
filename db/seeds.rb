@@ -10,7 +10,7 @@ admin = User.create({
 root = Category.create(:name => "筑诚集团", :ctype => 'none')
 
 c1 = Category.create(:name => "集团首页", :parent_id => root.id, :ctype => 'none')
-c2 = Category.create(:name => "筑诚建筑", :parent_id => root.id, :ctype => 'none')
+c2 = Category.create(:name => "筑诚建设", :parent_id => root.id, :ctype => 'none')
 c3 = Category.create(:name => "筑诚投资", :parent_id => root.id, :ctype => 'none')
 c4 = Category.create(:name => "筑诚能源", :parent_id => root.id, :ctype => 'none')
 c5 = Category.create(:name => "筑诚文化", :parent_id => root.id, :ctype => 'none')

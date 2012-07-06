@@ -38,4 +38,26 @@ module ApplicationHelper
     content_tag "ul", raw(html)
   end
 
+
+  #<div class="main-t">
+  #  集团首页 >>  企业介绍
+  #</div>
+  def render_breadcrumb
+    return "" if @breadcrumbs.nil? || @breadcrumbs.size < 2
+    crumb = "".html_safe
+    length = @breadcrumbs.length
+    @breadcrumbs.each_with_index do |c, i|
+      bread_class = []
+      bread_class << "first" if i == 0
+      bread_class << "last active" if i == (length - 1)
+      
+      if i == (length - 1)
+        breadcrumb_content = c
+      else
+        breadcrumb_content = c + "  ".html_safe + content_tag("span", ">>", :class => "divider") + "  ".html_safe
+      end
+      crumb += breadcrumb_content
+    end
+    return content_tag("div", crumb , :class => "main-t")
+  end
 end

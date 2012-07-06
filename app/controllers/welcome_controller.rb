@@ -20,6 +20,8 @@ class WelcomeController < ApplicationController
     end
     @current_c = @category
     @category_child =  (@category && @category.depth == 1) ?  @current_c.children  : @current_c.parent.children
+    drop_breadcrumb
+
   end
 
 

@@ -78,6 +78,10 @@ a{ text-decoration: none;}
     text-align: left;	
 }
 
+.main-t a{
+  color: #FFFFFF;
+}
+
 #main-content {
     overflow: hidden;
 }
